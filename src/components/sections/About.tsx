@@ -15,8 +15,11 @@ export const About = () => {
                 <img 
                   src="/adv.webp" 
                   alt="Dra. responsável - Moraes Luz Advocacia" 
+                  width={800}
+                  height={1201}
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
+                  decoding="async"
                 />
                 
                 {/* Gradiente Elegante e Legenda */}

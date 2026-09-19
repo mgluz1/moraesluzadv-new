@@ -25,7 +25,7 @@ export const Header = () => {
         }`}
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
-          <Logo className="py-1" />
+          <Logo className="py-1" priority />
           
           <nav className="hidden md:flex items-center gap-8">
             <NavItem href="#home">Início</NavItem>

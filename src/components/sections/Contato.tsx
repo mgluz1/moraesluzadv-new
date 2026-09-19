@@ -70,7 +70,15 @@ export const Contato = () => {
       <section className="py-20 bg-nude">
         <div className="container mx-auto px-6 text-center">
           <div className="flex justify-center mb-8">
-            <img src="/blacklogo.webp" alt="Moraes Luz Advocacia" className="h-32 md:h-48 lg:h-56 w-auto object-contain drop-shadow-lg block" loading="lazy" />
+            <img
+              src="/blacklogo.webp"
+              alt="Moraes Luz Advocacia"
+              width={600}
+              height={424}
+              className="h-32 md:h-48 lg:h-56 w-auto object-contain drop-shadow-lg block"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
           <h2 className="text-3xl md:text-5xl font-bold text-petroleum mb-8 text-center">
             Pronto para defender seus direitos?

@@ -36,9 +36,12 @@ export const Diferenciais = () => {
                   <div className="absolute inset-0 bg-petroleum/30 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
                   <img
                     src="/foto1.webp"
+                    width={800}
+                    height={1067}
                     alt="Estrutura do Escritório Moraes Luz"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>
@@ -49,9 +52,12 @@ export const Diferenciais = () => {
                   <div className="absolute inset-0 bg-nude/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
                   <img
                     src="/foto2.webp"
+                    width={800}
+                    height={1067}
                     alt="Atendimento Moraes Luz"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>

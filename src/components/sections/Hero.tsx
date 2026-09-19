@@ -59,7 +59,10 @@ export const Hero = () => {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-nude/10 via-transparent to-transparent" />
               
               <div className="relative z-10 flex flex-col items-center">
-                <CustomLogo className="w-80 h-80 md:w-96 md:h-96 drop-shadow-[0_0_15px_rgba(197,168,128,0.3)]" />
+                <CustomLogo
+                  priority
+                  className="w-80 h-80 md:w-96 md:h-96 drop-shadow-[0_0_15px_rgba(197,168,128,0.3)]"
+                />
                 <h2 className="font-serif text-4xl font-bold tracking-widest text-white uppercase mb-3 text-center -mt-16">
                   Moraes Luz
                 </h2>

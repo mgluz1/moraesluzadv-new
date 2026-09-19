@@ -63,13 +63,13 @@ Objetivo: reduzir risco ético-disciplinar da publicidade. **Toda esta fase prec
 
 Objetivo: carregar rápido no 4G. Hoje as imagens somam ~2 MB só no logo.
 
-- [ ] `logoTransparente.png` (1,5 MB, 1024×1024) → WebP ~400 px (**meta: < 40 KB**)
-- [ ] `blacklogo.png` (3508×2481) → WebP ~600 px de largura (**meta: < 40 KB**)
-- [ ] `adv.png`, `foto1.png`, `foto2.png` são JPEGs com extensão errada → converter para WebP ~800 px (**meta: < 80 KB cada**)
-- [ ] Favicon próprio pequeno (`favicon.ico` 32×32 + `apple-touch-icon.png` 180×180) em vez do logo de 1,5 MB
-- [ ] Adicionar `width` e `height` em todas as `<img>` (evita o layout "pular")
-- [ ] Hero: logo com `fetchpriority="high"` (é o maior elemento acima da dobra)
-- [ ] Fontes: tirar o `@import` do `index.css` e usar no `index.html`:
+- [x] `logoTransparente.png` (1,5 MB, 1024×1024) → WebP ~400 px (**meta: < 40 KB**)
+- [x] `blacklogo.png` (3508×2481) → WebP ~600 px de largura (**meta: < 40 KB**)
+- [x] `adv.png`, `foto1.png`, `foto2.png` são JPEGs com extensão errada → converter para WebP ~800 px (**meta: < 80 KB cada**)
+- [x] Favicon próprio pequeno (`favicon.ico` 32×32 + `apple-touch-icon.png` 180×180) em vez do logo de 1,5 MB
+- [x] Adicionar `width` e `height` em todas as `<img>` (evita o layout "pular")
+- [x] Hero: logo com `fetchpriority="high"` (é o maior elemento acima da dobra)
+- [x] Fontes: tirar o `@import` do `index.css` e usar no `index.html`:
   ```html
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
