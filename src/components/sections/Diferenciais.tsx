@@ -35,7 +35,7 @@ export const Diferenciais = () => {
                 <div className="rounded-3xl overflow-hidden border-4 border-white/10 shadow-2xl aspect-[4/5] relative group">
                   <div className="absolute inset-0 bg-petroleum/30 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
                   <img
-                    src="/foto1.png"
+                    src="/foto1.webp"
                     alt="Estrutura do Escritório Moraes Luz"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     loading="lazy"
@@ -48,7 +48,7 @@ export const Diferenciais = () => {
                 <div className="rounded-3xl overflow-hidden border-4 border-nude/40 shadow-2xl aspect-[4/5] relative group">
                   <div className="absolute inset-0 bg-nude/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
                   <img
-                    src="/foto2.png"
+                    src="/foto2.webp"
                     alt="Atendimento Moraes Luz"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     loading="lazy"

@@ -13,7 +13,7 @@ export const About = () => {
             <div className="relative z-10">
               <div className="rounded-3xl overflow-hidden shadow-2xl relative aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5] border-[8px] border-white group">
                 <img 
-                  src="/adv.png" 
+                  src="/adv.webp" 
                   alt="Dra. responsável - Moraes Luz Advocacia" 
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"

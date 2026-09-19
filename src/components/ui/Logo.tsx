@@ -1,6 +1,6 @@
 export const CustomLogo = ({ className = "w-16 h-16" }: { className?: string }) => (
   <img 
-    src="/logoTransparente.png" 
+    src="/logoTransparente.webp" 
     alt="Moraes Luz Logo" 
     className={`${className} object-contain`}
   />
