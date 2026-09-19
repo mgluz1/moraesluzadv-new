@@ -83,12 +83,12 @@ Objetivo: carregar rápido no 4G. Hoje as imagens somam ~2 MB só no logo.
 
 ## Fase 3 — SEO e compartilhamento
 
-- [ ] `<html lang="en">` → `lang="pt-BR"`
-- [ ] `og:image` (1200×630, com logo e nome) + `og:url` + `twitter:card` — hoje o link no WhatsApp sai sem imagem
-- [ ] `<link rel="canonical">` com o domínio definitivo
-- [ ] Dados estruturados `LegalService` (JSON-LD) com nome, endereço, telefone, horário e coordenadas — ajuda no Google local
+- [x] `<html lang="en">` → `lang="pt-BR"`
+- [x] `og:image` (1200×630, com logo e nome) + `og:url` + `twitter:card` — hoje o link no WhatsApp sai sem imagem
+- [x] `<link rel="canonical">` com o domínio definitivo
+- [x] Dados estruturados `LegalService` (JSON-LD) com nome, endereço, telefone, horário e coordenadas — ajuda no Google local
 - [ ] Revisar `meta description` alinhada à Fase 1 (sem "especialistas")
-- [ ] `robots.txt` e `sitemap.xml` em `public/`
+- [x] `robots.txt` e `sitemap.xml` em `public/`
 - [ ] **Domínio próprio** (ex.: `moraesluzadvocacia.com.br`, ~R$ 40/ano no Registro.br) — decisão da cliente
 - [ ] Vincular ao **Perfil da Empresa no Google** (link do site no perfil e vice-versa)
 
