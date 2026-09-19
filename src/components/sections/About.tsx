@@ -14,10 +14,10 @@ export const About = () => {
               <div className="rounded-3xl overflow-hidden shadow-2xl relative aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5] border-[8px] border-white group">
                 <img 
                   src="/adv.webp" 
-                  alt="Dra. responsável - Moraes Luz Advocacia" 
+                  alt="Dra. Isabela Moraes Luz, advogada do escritório Moraes Luz Advocacia" 
                   width={800}
                   height={1201}
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover object-top motion-safe:group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                   decoding="async"
                 />
@@ -60,7 +60,7 @@ export const About = () => {
           <h3 className="text-2xl md:text-3xl font-bold text-petroleum text-center mb-12">Nossa Essência</h3>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6">
             {VALORES.map((valor, idx) => (
-              <div key={idx} className="bg-white px-6 py-4 rounded-full shadow-sm hover:shadow-lg transition-all duration-300 border border-nude/20 text-petroleum font-bold uppercase tracking-wider text-sm flex items-center gap-3 hover:-translate-y-1">
+              <div key={idx} className="bg-white px-6 py-4 rounded-full shadow-sm hover:shadow-lg transition-all duration-300 border border-nude/20 text-petroleum font-bold uppercase tracking-wider text-sm flex items-center gap-3 motion-safe:hover:-translate-y-1">
                 <CheckCircle2 className="text-nude w-5 h-5 flex-shrink-0" aria-hidden="true" />
                 {valor}
               </div>

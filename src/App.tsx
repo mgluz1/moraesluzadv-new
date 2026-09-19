@@ -33,7 +33,7 @@ export default function App() {
       <ExternalLink
         href={LINKS.WHATSAPP}
         aria-label="Falar conosco no WhatsApp"
-        className="fixed bottom-6 right-6 z-50 md:hidden bg-green-500 text-white p-4 rounded-full shadow-2xl animate-bounce hover:bg-green-600 transition-colors"
+        className="fixed bottom-6 right-6 z-50 md:hidden bg-green-500 text-white p-4 rounded-full shadow-lg shadow-black/30 hover:bg-green-600 hover:shadow-xl transition-all"
       >
         <MessageCircle size={28} aria-hidden="true" />
       </ExternalLink>

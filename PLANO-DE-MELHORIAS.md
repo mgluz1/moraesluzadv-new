@@ -107,15 +107,15 @@ Objetivo: carregar rápido no 4G. Hoje as imagens somam ~2 MB só no logo.
 - [x] Mailto: codificar assunto/corpo e padronizar o nome ("Moraes Luz", não "Moraes & Luz")
 
 **Layout**
-- [ ] Conferir no celular se o header (logo de até 112 px + `py-6`) cobre o topo do Hero; reduzir logo do header para ~56–64 px ou aumentar o `pt` do Hero
-- [ ] Links internos com `scroll-margin-top` para o header fixo não cobrir o título da seção
-- [ ] Botão flutuante do WhatsApp: trocar `animate-bounce` por algo discreto (ou nenhum efeito)
+- [x] Conferir no celular se o header (logo de até 112 px + `py-6`) cobre o topo do Hero; reduzir logo do header para ~56–64 px ou aumentar o `pt` do Hero
+- [x] Links internos com `scroll-margin-top` para o header fixo não cobrir o título da seção
+- [x] Botão flutuante do WhatsApp: trocar `animate-bounce` por algo discreto (ou nenhum efeito)
 
 **Acessibilidade**
-- [ ] Menu mobile: `aria-expanded`, `aria-controls`, travar scroll do `body` quando aberto e fechar com `Esc`
-- [ ] Respeitar `prefers-reduced-motion` (Motion: `useReducedMotion`; Tailwind: `motion-safe:`)
-- [ ] Contraste: textos `text-white/40` pequenos no card de contato → subir para `/60` ou mais
-- [ ] `alt` da foto com o nome real da advogada
+- [x] Menu mobile: `aria-expanded`, `aria-controls`, travar scroll do `body` quando aberto e fechar com `Esc`
+- [x] Respeitar `prefers-reduced-motion` (Motion: `useReducedMotion`; Tailwind: `motion-safe:`)
+- [x] Contraste: textos `text-white/40` pequenos no card de contato → subir para `/60` ou mais
+- [x] `alt` da foto com o nome real da advogada
 
 **Pronto quando:** Lighthouse Acessibilidade ≥ 95 e todos os botões testados no celular.
 

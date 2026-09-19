@@ -1,9 +1,11 @@
 import { MessageCircle, Mail, MapPin, ChevronRight, Instagram } from 'lucide-react';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 import { ExternalLink } from '../ui/ExternalLink';
 import { LINKS } from '../../constants/data';
 
 export const Contato = () => {
+  const reduzirMovimento = useReducedMotion();
+
   return (
     <>
       <section id="contato" className="py-24 bg-white">
@@ -12,7 +14,7 @@ export const Contato = () => {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             <motion.a 
-              whileHover={{ scale: 1.05 }}
+              whileHover={reduzirMovimento ? undefined : { scale: 1.05 }}
               href={LINKS.WHATSAPP}
               target="_blank"
               rel="noopener noreferrer"
@@ -22,11 +24,11 @@ export const Contato = () => {
                 <MessageCircle size={32} aria-hidden="true" />
               </div>
               <span className="font-bold text-white uppercase tracking-widest">Mensagem</span>
-              <span className="text-white/40 text-xs">WhatsApp</span>
+              <span className="text-white/60 text-xs">WhatsApp</span>
             </motion.a>
 
             <motion.a 
-              whileHover={{ scale: 1.05 }}
+              whileHover={reduzirMovimento ? undefined : { scale: 1.05 }}
               href={LINKS.EMAIL}
               className="flex flex-col items-center gap-4 p-8 bg-slate-900 rounded-2xl group transition-all"
             >
@@ -34,11 +36,11 @@ export const Contato = () => {
                 <Mail size={32} aria-hidden="true" />
               </div>
               <span className="font-bold text-white uppercase tracking-widest">E-mail</span>
-              <span className="text-white/40 text-xs">moraesluzadvocacia@gmail.com</span>
+              <span className="text-white/60 text-xs">moraesluzadvocacia@gmail.com</span>
             </motion.a>
 
             <motion.a 
-              whileHover={{ scale: 1.05 }}
+              whileHover={reduzirMovimento ? undefined : { scale: 1.05 }}
               href={LINKS.MAPS}
               target="_blank"
               rel="noopener noreferrer"
@@ -48,11 +50,11 @@ export const Contato = () => {
                 <MapPin size={32} aria-hidden="true" />
               </div>
               <span className="font-bold text-white uppercase tracking-widest">Localização</span>
-              <span className="text-white/40 text-xs">Ver no Mapa</span>
+              <span className="text-white/60 text-xs">Ver no Mapa</span>
             </motion.a>
 
             <motion.a 
-              whileHover={{ scale: 1.05 }}
+              whileHover={reduzirMovimento ? undefined : { scale: 1.05 }}
               href={LINKS.INSTAGRAM}
               target="_blank"
               rel="noopener noreferrer"
@@ -62,7 +64,7 @@ export const Contato = () => {
                 <Instagram size={32} aria-hidden="true" />
               </div>
               <span className="font-bold text-white uppercase tracking-widest">Instagram</span>
-              <span className="text-white/40 text-xs">@isabelamoraesluz</span>
+              <span className="text-white/60 text-xs">@isabelamoraesluz</span>
             </motion.a>
           </div>
         </div>

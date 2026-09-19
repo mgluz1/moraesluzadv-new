@@ -13,10 +13,20 @@
   html {
     scroll-behavior: smooth;
   }
+  /* O header é fixo: sem isso ele cobre o topo da seção ao clicar no menu. */
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
   body {
     @apply font-sans bg-white text-slate-900;
   }
   h1, h2, h3, h4 {
     @apply font-serif;
+  }
+  /* O scroll suave também é movimento: quem pediu menos animação não o recebe. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 }

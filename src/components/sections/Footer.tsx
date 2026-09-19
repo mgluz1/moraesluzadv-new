@@ -42,7 +42,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-10 border-t border-white/10 text-center text-white/40 text-sm">
+        <div className="pt-10 border-t border-white/10 text-center text-white/60 text-sm">
           <p>&copy; {new Date().getFullYear()} Moraes Luz Advocacia & Assessoria Jurídica. Todos os direitos reservados.</p>
         </div>
       </div>

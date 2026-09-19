@@ -39,7 +39,7 @@ export const Diferenciais = () => {
                     width={800}
                     height={1067}
                     alt="Estrutura do Escritório Moraes Luz"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-cover motion-safe:group-hover:scale-110 transition-transform duration-700"
                     loading="lazy"
                     decoding="async"
                   />
@@ -55,7 +55,7 @@ export const Diferenciais = () => {
                     width={800}
                     height={1067}
                     alt="Atendimento Moraes Luz"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-cover motion-safe:group-hover:scale-110 transition-transform duration-700"
                     loading="lazy"
                     decoding="async"
                   />
@@ -65,7 +65,7 @@ export const Diferenciais = () => {
 
             {/* Elementos Decorativos de Fundo */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[90%] bg-nude/5 rounded-[3rem] -z-10 -rotate-3 border border-nude/10 hidden md:block" />
-            <div className="absolute -bottom-10 -right-6 w-32 h-32 bg-nude rounded-3xl -z-20 hidden lg:block animate-pulse opacity-80" />
+            <div className="absolute -bottom-10 -right-6 w-32 h-32 bg-nude rounded-3xl -z-20 hidden lg:block motion-safe:animate-pulse opacity-80" />
             <div className="absolute top-0 -left-6 w-24 h-24 border-2 border-nude/30 rounded-full -z-20 hidden md:block" />
           </div>
         </div>

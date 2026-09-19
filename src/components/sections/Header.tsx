@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { Logo } from '../ui/Logo';
 import { NavItem } from '../ui/NavItem';
 import { ExternalLink } from '../ui/ExternalLink';
 import { LINKS } from '../../constants/data';
 
+const ID_MENU_MOBILE = 'menu-mobile';
+
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const reduzirMovimento = useReducedMotion();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,16 +21,34 @@ export const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Com o menu aberto, a página atrás não deve rolar, e Esc fecha.
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const overflowAnterior = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (evento: KeyboardEvent) => {
+      if (evento.key === 'Escape') setIsMenuOpen(false);
+    };
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = overflowAnterior;
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isMenuOpen]);
+
   return (
     <>
-      <header 
+      <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled ? 'bg-petroleum/95 backdrop-blur-md py-3 shadow-lg' : 'bg-transparent py-6'
         }`}
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
-          <Logo className="py-1" priority />
-          
+          <Logo className="py-1" logoClassName="w-14 h-14 md:w-16 md:h-16" priority />
+
           <nav className="hidden md:flex items-center gap-8">
             <NavItem href="#home">Início</NavItem>
             <NavItem href="#sobre">Escritório</NavItem>
@@ -41,10 +62,12 @@ export const Header = () => {
             </ExternalLink>
           </nav>
 
-          <button 
+          <button
             className="md:hidden text-white p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Abrir menu de navegação"
+            aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+            aria-expanded={isMenuOpen}
+            aria-controls={ID_MENU_MOBILE}
           >
             {isMenuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
           </button>
@@ -53,10 +76,12 @@ export const Header = () => {
 
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
+          <motion.div
+            id={ID_MENU_MOBILE}
+            initial={reduzirMovimento ? false : { opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            exit={{ opacity: 0, y: reduzirMovimento ? 0 : -20 }}
+            transition={{ duration: reduzirMovimento ? 0 : 0.2 }}
             className="fixed inset-0 z-40 bg-petroleum pt-24 px-6 md:hidden"
           >
             <nav className="flex flex-col gap-6 items-center text-center">

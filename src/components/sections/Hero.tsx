@@ -1,21 +1,23 @@
 import { MessageCircle, Calendar, Shield } from 'lucide-react';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 import { CustomLogo } from '../ui/Logo';
 import { ExternalLink } from '../ui/ExternalLink';
 import { LINKS } from '../../constants/data';
 
 export const Hero = () => {
+  const reduzirMovimento = useReducedMotion();
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-petroleum">
+    <section id="home" className="relative min-h-screen flex items-center pt-28 md:pt-24 overflow-hidden bg-petroleum">
       <div className="absolute top-0 right-0 w-1/3 h-full bg-nude/5 skew-x-12 transform translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-nude/10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2" />
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div 
-            initial={{ opacity: 0, x: -30 }}
+            initial={reduzirMovimento ? false : { opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: reduzirMovimento ? 0 : 0.8 }}
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-nude/10 border border-nude/20 text-nude text-xs font-bold uppercase tracking-widest mb-6">
               <Shield size={14} aria-hidden="true" /> Advocacia de Excelência
@@ -33,7 +35,7 @@ export const Hero = () => {
                 href={LINKS.WHATSAPP}
                 className="flex items-center justify-center gap-3 bg-nude hover:bg-nude-dark text-petroleum px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 group"
               >
-                <MessageCircle className="group-hover:scale-110 transition-transform" aria-hidden="true" />
+                <MessageCircle className="motion-safe:group-hover:scale-110 transition-transform" aria-hidden="true" />
                 Consultar Agora
               </ExternalLink>
               <ExternalLink
@@ -47,9 +49,9 @@ export const Hero = () => {
           </motion.div>
 
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={reduzirMovimento ? false : { opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2 }}
+            transition={{ duration: reduzirMovimento ? 0 : 1, delay: reduzirMovimento ? 0 : 0.2 }}
             className="relative hidden md:block"
           >
             <div className="relative z-10 rounded-2xl overflow-hidden border-8 border-white/5 shadow-2xl bg-black/20 h-[600px] flex flex-col items-center justify-center">
