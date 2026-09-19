@@ -1,5 +1,6 @@
 import { MessageCircle, Mail, MapPin, ChevronRight, Instagram } from 'lucide-react';
 import { motion } from 'motion/react';
+import { ExternalLink } from '../ui/ExternalLink';
 import { LINKS } from '../../constants/data';
 
 export const Contato = () => {
@@ -86,12 +87,12 @@ export const Contato = () => {
           <p className="text-petroleum/80 text-lg mb-10 max-w-2xl mx-auto">
             Entre em contato hoje mesmo e agende uma consulta com nossos especialistas. Estamos prontos para oferecer a melhor estratégia para o seu caso.
           </p>
-          <a 
+          <ExternalLink
             href={LINKS.WHATSAPP}
             className="inline-flex items-center gap-3 bg-petroleum text-white px-10 py-5 rounded-full font-bold text-xl hover:bg-slate-900 transition-all shadow-xl hover:shadow-2xl"
           >
             Falar com um Advogado <ChevronRight aria-hidden="true" />
-          </a>
+          </ExternalLink>
         </div>
       </section>
     </>

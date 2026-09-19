@@ -99,12 +99,12 @@ Objetivo: carregar rápido no 4G. Hoje as imagens somam ~2 MB só no logo.
 ## Fase 4 — UX e acessibilidade
 
 **Links e botões**
-- [ ] "Agendar Horário" aponta para o mesmo WhatsApp de "Consultar Agora" → mensagens pré-preenchidas diferentes:
+- [x] "Agendar Horário" aponta para o mesmo WhatsApp de "Consultar Agora" → mensagens pré-preenchidas diferentes:
   - Consultar: `https://wa.me/5562981559648?text=Olá! Vim pelo site e gostaria de uma orientação jurídica.`
   - Agendar: `https://wa.me/5562981559648?text=Olá! Gostaria de agendar um horário com o escritório.`
   (URL-encode no código com `encodeURIComponent`)
-- [ ] Adicionar `target="_blank" rel="noopener noreferrer"` nos links externos que faltam: Instagram e WhatsApp do `Footer`, WhatsApp do menu mobile, CTA "Falar com um Advogado"
-- [ ] Mailto: codificar assunto/corpo e padronizar o nome ("Moraes Luz", não "Moraes & Luz")
+- [x] Adicionar `target="_blank" rel="noopener noreferrer"` nos links externos que faltam: Instagram e WhatsApp do `Footer`, WhatsApp do menu mobile, CTA "Falar com um Advogado"
+- [x] Mailto: codificar assunto/corpo e padronizar o nome ("Moraes Luz", não "Moraes & Luz")
 
 **Layout**
 - [ ] Conferir no celular se o header (logo de até 112 px + `py-6`) cobre o topo do Hero; reduzir logo do header para ~56–64 px ou aumentar o `pt` do Hero

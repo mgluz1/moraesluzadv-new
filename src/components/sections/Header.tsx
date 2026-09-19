@@ -3,6 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Logo } from '../ui/Logo';
 import { NavItem } from '../ui/NavItem';
+import { ExternalLink } from '../ui/ExternalLink';
 import { LINKS } from '../../constants/data';
 
 export const Header = () => {
@@ -32,14 +33,12 @@ export const Header = () => {
             <NavItem href="#sobre">Escritório</NavItem>
             <NavItem href="#atuacao">Atuação</NavItem>
             <NavItem href="#contato">Contato</NavItem>
-            <a 
+            <ExternalLink
               href={LINKS.WHATSAPP}
-              target="_blank"
-              rel="noopener noreferrer"
               className="bg-nude hover:bg-nude-dark text-petroleum px-6 py-2.5 rounded-full text-sm font-bold uppercase tracking-widest transition-all duration-300 shadow-md hover:shadow-lg"
             >
               Falar com Advogado
-            </a>
+            </ExternalLink>
           </nav>
 
           <button 
@@ -65,12 +64,13 @@ export const Header = () => {
               <NavItem href="#sobre" onClick={() => setIsMenuOpen(false)}>Escritório</NavItem>
               <NavItem href="#atuacao" onClick={() => setIsMenuOpen(false)}>Atuação</NavItem>
               <NavItem href="#contato" onClick={() => setIsMenuOpen(false)}>Contato</NavItem>
-              <a 
+              <ExternalLink
                 href={LINKS.WHATSAPP}
-                className="w-full bg-nude text-petroleum py-4 rounded-xl font-bold uppercase tracking-widest mt-4"
+                onClick={() => setIsMenuOpen(false)}
+                className="w-full bg-nude text-petroleum py-4 rounded-xl font-bold uppercase tracking-widest mt-4 text-center"
               >
                 WhatsApp
-              </a>
+              </ExternalLink>
             </nav>
           </motion.div>
         )}

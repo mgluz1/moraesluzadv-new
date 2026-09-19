@@ -10,12 +10,25 @@ import {
   HeartHandshake 
 } from 'lucide-react';
 
+const TELEFONE = "5562981559648";
+const EMAIL_DESTINO = "moraesluzadvocacia@gmail.com";
+
+/** Link do WhatsApp já com a mensagem preenchida na caixa de texto. */
+const whatsapp = (texto: string) =>
+  `https://wa.me/${TELEFONE}?text=${encodeURIComponent(texto)}`;
+
+const mailto = (assunto: string, corpo: string) =>
+  `mailto:${EMAIL_DESTINO}?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(corpo)}`;
+
 export const LINKS = {
-  WHATSAPP: "https://wa.me/5562981559648",
+  WHATSAPP: whatsapp("Olá! Vim pelo site e gostaria de uma orientação jurídica."),
+  AGENDA: whatsapp("Olá! Gostaria de agendar um horário com o escritório."),
   INSTAGRAM: "https://www.instagram.com/isabelamoraesluz/",
-  AGENDA: "https://wa.me/5562981559648",
   MAPS: "https://www.google.com/maps/place/Moraes+Luz+Advocacia/@-16.6394493,-49.2325518,19z/data=!4m10!1m2!2m1!1sEsquina+com+Rua+J60,+Av.+Sucuri+-+St.+Jao,+Goi%C3%A2nia-GO,+74674-260!3m6!1s0x935ef3f2994d01f3:0x9eea480cce786fac!8m2!3d-16.6394493!4d-49.2313609!15sCkFFc3F1aW5hIGNvbSBSdWEgSjYwLCBBdi4gU3VjdXJpIC0gU3QuIEphbywgR29pw6JuaWEtR08sIDc0Njc0LTI2MJIBDmxlZ2FsX3NlcnZpY2Vz4AEA!16s%2Fg%2F11s1rngv0t?entry=ttu&g_ep=EgoyMDI2MDMxNy4wIKXMDSoASAFQAw%3D%3D",
-  EMAIL: "mailto:moraesluzadvocacia@gmail.com?subject=Consulta Jurídica - Moraes & Luz Advocacia&body=Olá, gostaria de agendar uma consulta com um especialista da equipe Moraes & Luz Advocacia."
+  EMAIL: mailto(
+    "Consulta Jurídica - Moraes Luz Advocacia",
+    "Olá, gostaria de agendar uma consulta com um especialista da equipe Moraes Luz Advocacia.",
+  ),
 };
 
 export const VALORES = ["Pontualidade", "Qualidade", "Relacionamento", "Inovação", "Transparência"];

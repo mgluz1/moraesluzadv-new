@@ -1,6 +1,7 @@
 import { MessageCircle, Calendar, Shield } from 'lucide-react';
 import { motion } from 'motion/react';
 import { CustomLogo } from '../ui/Logo';
+import { ExternalLink } from '../ui/ExternalLink';
 import { LINKS } from '../../constants/data';
 
 export const Hero = () => {
@@ -28,24 +29,20 @@ export const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <a 
+              <ExternalLink
                 href={LINKS.WHATSAPP}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 bg-nude hover:bg-nude-dark text-petroleum px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 group"
               >
                 <MessageCircle className="group-hover:scale-110 transition-transform" aria-hidden="true" />
                 Consultar Agora
-              </a>
-              <a 
+              </ExternalLink>
+              <ExternalLink
                 href={LINKS.AGENDA}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
               >
                 <Calendar size={20} aria-hidden="true" />
                 Agendar Horário
-              </a>
+              </ExternalLink>
             </div>
           </motion.div>
 

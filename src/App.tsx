@@ -12,6 +12,7 @@ import { Depoimentos } from './components/sections/Depoimentos';
 import { Contato } from './components/sections/Contato';
 import { Footer } from './components/sections/Footer';
 import { MessageCircle } from 'lucide-react';
+import { ExternalLink } from './components/ui/ExternalLink';
 import { LINKS } from './constants/data';
 
 export default function App() {
@@ -29,15 +30,13 @@ export default function App() {
       <Footer />
       
       {/* Floating WhatsApp Button */}
-      <a 
+      <ExternalLink
         href={LINKS.WHATSAPP}
-        target="_blank"
-        rel="noopener noreferrer"
         aria-label="Falar conosco no WhatsApp"
         className="fixed bottom-6 right-6 z-50 md:hidden bg-green-500 text-white p-4 rounded-full shadow-2xl animate-bounce hover:bg-green-600 transition-colors"
       >
         <MessageCircle size={28} aria-hidden="true" />
-      </a>
+      </ExternalLink>
     </div>
   );
 }

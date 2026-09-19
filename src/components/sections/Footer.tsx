@@ -1,5 +1,6 @@
 import { Instagram, MessageCircle } from 'lucide-react';
 import { Logo } from '../ui/Logo';
+import { ExternalLink } from '../ui/ExternalLink';
 import { LINKS } from '../../constants/data';
 
 export const Footer = () => {
@@ -27,12 +28,12 @@ export const Footer = () => {
           <div>
             <h4 className="font-bold text-lg mb-6 text-nude">Redes Sociais</h4>
             <div className="flex gap-4">
-              <a href={LINKS.INSTAGRAM} aria-label="Acessar Instagram" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-nude hover:text-petroleum hover:border-nude transition-all">
+              <ExternalLink href={LINKS.INSTAGRAM} aria-label="Acessar Instagram" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-nude hover:text-petroleum hover:border-nude transition-all">
                 <Instagram size={20} aria-hidden="true" />
-              </a>
-              <a href={LINKS.WHATSAPP} aria-label="Acessar WhatsApp" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-nude hover:text-petroleum hover:border-nude transition-all">
+              </ExternalLink>
+              <ExternalLink href={LINKS.WHATSAPP} aria-label="Acessar WhatsApp" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-nude hover:text-petroleum hover:border-nude transition-all">
                 <MessageCircle size={20} aria-hidden="true" />
-              </a>
+              </ExternalLink>
             </div>
             <div className="mt-8">
               <h4 className="font-bold text-sm mb-2 text-nude uppercase tracking-widest">Endereço</h4>
