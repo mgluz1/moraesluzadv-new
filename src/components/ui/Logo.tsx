@@ -2,8 +2,7 @@ export const CustomLogo = ({ className = "w-16 h-16" }: { className?: string }) 
   <img 
     src="/logoTransparente.png" 
     alt="Moraes Luz Logo" 
-    className={`${className} object-contain`} 
-    style={{ imageRendering: 'high-quality' }}
+    className={`${className} object-contain`}
   />
 );
 
