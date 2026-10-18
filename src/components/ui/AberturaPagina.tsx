@@ -9,10 +9,12 @@ interface AberturaPaginaProps {
   trilha: string;
   children?: ReactNode;
   comRota?: boolean;
+  /** Emblema dourado ao lado do título (desktop) e acima dele (celular). */
+  logo?: boolean;
 }
 
 /** Abertura das páginas internas: trilha, rótulo, H1 e texto de apoio. */
-export const AberturaPagina = ({rotulo, titulo, trilha, children, comRota = false}: AberturaPaginaProps) => (
+export const AberturaPagina = ({rotulo, titulo, trilha, children, comRota = false, logo = false}: AberturaPaginaProps) => (
   <div className="superficie-escura relative overflow-hidden bg-verde-profundo text-white">
     {comRota && (
       <LinhaRota className="absolute -right-24 bottom-0 hidden w-[620px] text-dourado/45 lg:block" />
@@ -34,8 +36,25 @@ export const AberturaPagina = ({rotulo, titulo, trilha, children, comRota = fals
       <Rotulo escuro className="mt-10">
         {rotulo}
       </Rotulo>
-      <h1 className="titulo-pagina mt-4 max-w-3xl">{titulo}</h1>
-      {children && <div className="texto-apoio mt-6 max-w-2xl text-white/80">{children}</div>}
+      <div className={`mt-4 ${logo ? 'grid items-center gap-10 md:grid-cols-[minmax(0,1fr)_auto] lg:gap-16' : ''}`}>
+        <div>
+          <h1 className="titulo-pagina max-w-3xl">{titulo}</h1>
+          {children && <div className="texto-apoio mt-6 max-w-2xl text-white/80">{children}</div>}
+        </div>
+        {logo && (
+          <img
+            src="/logo-emblema-320.webp"
+            srcSet="/logo-emblema-320.webp 320w, /logo-emblema-480.webp 480w"
+            sizes="(min-width: 768px) 176px, 128px"
+            alt=""
+            width={320}
+            height={313}
+            decoding="async"
+            data-revelar
+            className="relative z-10 mx-auto h-auto w-32 drop-shadow-[0_0_22px_rgb(201_169_110/0.22)] sm:w-40 md:mx-0 md:w-44 lg:w-48"
+          />
+        )}
+      </div>
     </Container>
   </div>
 );

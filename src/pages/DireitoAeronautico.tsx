@@ -10,7 +10,7 @@ import {RESPONSAVEL} from '../config/site';
 export const DireitoAeronautico = () => (
   <>
     {/* 1. Posicionamento e públicos */}
-    <AberturaPagina rotulo="Direito Aeronáutico" titulo="Assessoria jurídica para operações com aeronaves" trilha="Direito Aeronáutico" comRota>
+    <AberturaPagina rotulo="Direito Aeronáutico" titulo="Assessoria jurídica para operações com aeronaves" trilha="Direito Aeronáutico" comRota logo>
       <p>
         Contratos, transações, regulação e relações de trabalho para quem compra, vende, opera, administra ou presta serviços a
         aeronaves.
