@@ -1,78 +1,67 @@
-# Moraes Luz Advocacia — Landing Page
+# Moraes Luz Advocacia — site institucional
 
-Site institucional do escritório **Moraes Luz Advocacia & Assessoria Jurídica**, de Goiânia (GO).
+Site do escritório **Moraes Luz Advocacia & Assessoria Jurídica** (Goiânia, GO), com foco em Direito Aeronáutico e Empresarial.
 
-🔗 **No ar:** [moraesluzadvocacia.netlify.app](https://moraesluzadvocacia.netlify.app)
+🔗 Domínio principal: [moraesluzadv.com](https://moraesluzadv.com)
+
+A entrega da reestruturação de 2026 (decisões, verificações e pendências) está em [`docs/ENTREGA-REESTRUTURACAO.md`](docs/ENTREGA-REESTRUTURACAO.md).
 
 ## Stack
 
-- [React 19](https://react.dev) + TypeScript
-- [Vite 6](https://vitejs.dev) (build e servidor de desenvolvimento)
-- [Tailwind CSS 4](https://tailwindcss.com)
-- [Motion](https://motion.dev) (animações) e [Lucide](https://lucide.dev) (ícones)
-- Hospedagem: [Netlify](https://www.netlify.com)
+- React 19 + TypeScript, Vite 6, Tailwind CSS 4
+- Pré-renderização própria: um HTML estático por rota, hidratado no navegador
+- Fontes Fraunces e Inter autohospedadas (`@fontsource-variable`); ícones Lucide
+- Hospedagem: Netlify
 
-## Como rodar localmente
+## Como rodar
 
-Pré-requisito: [Node.js](https://nodejs.org) 18 ou superior.
+Pré-requisito: Node.js 20.
 
 ```bash
-npm install      # instala as dependências
-npm run dev      # abre em http://localhost:3000
+npm install
+npm run dev        # desenvolvimento em http://localhost:3000
+npm run build      # build de produção + pré-renderização em dist/
+npm run preview    # serve dist/ como o Netlify (404 real) em http://localhost:4173
+npm run lint       # checagem de tipos
+npm run imagens    # gera as imagens de public/ a partir de design/originais/
 ```
 
-Outros comandos:
-
-| Comando           | O que faz                                   |
-| ----------------- | ------------------------------------------- |
-| `npm run build`   | Gera a versão de produção na pasta `dist/`  |
-| `npm run preview` | Serve a pasta `dist/` para conferir o build |
-| `npm run lint`    | Checagem de tipos com o TypeScript          |
+`npm run dev` não pré-renderiza. Para conferir títulos, canonical, sitemap e 404, use `build` + `preview`.
 
 ## Estrutura
 
 ```
-├── index.html               # HTML base, título e meta tags (SEO / redes sociais)
-├── public/                  # Imagens servidas como estão (logo, fotos)
+├── index.html                 # Modelo do HTML (o head de cada rota é inserido no build)
+├── netlify.toml               # Build, redirecionamentos do domínio antigo e headers
+├── design/originais/          # Imagens originais (fora do deploy)
+├── public/                    # Imagens otimizadas, favicon, imagem de compartilhamento
+├── scripts/
+│   ├── prerender.mjs          # HTML por rota, sitemap.xml, robots.txt, 404.html e checagens
+│   ├── servidor-homologacao.mjs
+│   └── otimizar-imagens.mjs
 └── src/
-    ├── App.tsx              # Monta a página na ordem das seções
-    ├── index.css            # Tailwind, fontes e cores da marca
-    ├── constants/data.ts    # ✏️ Textos e links editáveis
-    └── components/
-        ├── sections/        # Header, Hero, About, AreasDeAtuacao,
-        │                    # Diferenciais, Depoimentos, Contato, Footer
-        └── ui/              # Componentes reutilizáveis (Logo, cards, itens de menu)
+    ├── rotas.tsx              # Rotas, títulos e descrições
+    ├── config/site.ts         # ✏️ Contatos, endereço, domínio e responsável
+    ├── content/
+    │   ├── atuacao.ts         # ✏️ Textos de atuação (aviação, empresarial, trabalhista)
+    │   └── conhecimento.ts    # ✏️ Publicações reais (bloco oculto enquanto vazio)
+    ├── lib/                   # SEO (head e JSON-LD) e mensuração
+    ├── hooks/useRevelar.ts    # Animações de entrada ao rolar
+    ├── components/            # Layout, contato e componentes de interface
+    └── pages/                 # Home, Direito Aeronáutico, Atuação, Escritório, Privacidade, 404
 ```
 
-## Editando o conteúdo
+## Editando
 
-A maior parte do conteúdo fica em **`src/constants/data.ts`**:
+- **Contatos e dados do escritório:** `src/config/site.ts`
+- **Textos de atuação:** `src/content/atuacao.ts`
+- **Publicações e participações:** `src/content/conhecimento.ts` (só material publicado e revisado)
+- **Nova página:** criar em `src/pages/`, registrar em `src/rotas.tsx` (título, descrição, arquivo) e, se for o caso, no menu (`src/components/layout/Header.tsx`). O sitemap é gerado automaticamente.
+- **Formulário de contato:** desligado por padrão; ver a seção 4 de `docs/ENTREGA-REESTRUTURACAO.md`.
 
-- `LINKS`: WhatsApp, Instagram, e-mail e Google Maps
-- `SERVICOS`: áreas de atuação
-- `DIFERENCIAIS`: seção "Por que escolher"
-- `DEPOIMENTOS`: depoimentos de clientes
-- `VALORES`: valores do escritório
-
-As cores da marca estão definidas em `src/index.css`:
-
-| Token      | Cor       | Uso                          |
-| ---------- | --------- | ---------------------------- |
-| `petroleum`| `#1a4a45` | Fundo principal e títulos    |
-| `nude`     | `#c9a96e` | Destaques e botões           |
-| `nude-dark`| `#b08f55` | Hover dos botões             |
-
-Fontes: **Playfair Display** (títulos) e **Inter** (texto).
-
-## Deploy
-
-Os arquivos gerados pelo `npm run build` (pasta `dist/`) são publicados no Netlify.
-Configuração recomendada, com o repositório conectado ao Netlify:
-
-- **Build command:** `npm run build`
-- **Publish directory:** `dist`
+Cores da marca (`src/index.css`): verde `#1A4A45`, verde profundo `#102F2D`, papel `#F5F4F0`, dourado `#C9A96E`, bronze `#80612E`.
 
 ## Autoria
 
 Desenvolvido por **Miguel Luz** ([@mgluz1](https://github.com/mgluz1)).
-Conteúdo e marca © Moraes Luz Advocacia & Assessoria Jurídica. Todos os direitos reservados.
+Conteúdo e marca © Moraes Luz Advocacia & Assessoria Jurídica.
