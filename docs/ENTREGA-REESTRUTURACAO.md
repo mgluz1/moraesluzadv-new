@@ -22,7 +22,7 @@ Menu: Aviação · Atuação · Escritório · Contato (`/#contato`).
 
 - Empresarial e Trabalhista consolidados em `/atuacao`, com âncoras próprias, em vez de duas páginas, para não criar páginas rasas na primeira versão.
 - Sem subpáginas por tema de aviação (compra e venda, importação etc.): os temas estão agrupados em `/direito-aeronautico` com âncoras (`#transacoes`, `#operacao`, `#empresas`). Criar subpáginas quando houver texto próprio suficiente.
-- **Logo no hero (cartão horizontal):** o prompt de reestruturação pedia para não repetir o logo grande do cabeçalho. Por decisão do Miguel durante a execução, o hero da Home tem um cartão horizontal (emblema à esquerda; nome e "Advocacia & Assessoria Jurídica" à direita; empilhado abaixo de 360 px) com animação de entrada. No desktop, o hero é dividido 6/6 entre texto e cartão. "Quem atendemos" virou uma faixa na base do hero para continuar visível de imediato.
+- **Logo no hero (cartão vertical e largo):** o prompt de reestruturação pedia para não repetir o logo grande do cabeçalho. Por decisão do Miguel durante a execução, o hero da Home tem um cartão vertical (emblema em cima; nome, filete dourado e "Advocacia & Assessoria Jurídica" embaixo) que ocupa a metade direita do hero no desktop (528×451 px), com animação de entrada. "Quem atendemos" virou uma faixa na base do hero para continuar visível de imediato.
 - Insights: estrutura em `src/content/conhecimento.ts` (lista vazia). O bloco da Home só aparece com material real e só mostra até dois itens. Não há rota `/insights` nem artigos fictícios.
 - Atendimento a passageiros: não criado (sem confirmação de que existe). Se existir, fazer um fluxo separado, fora do menu principal.
 - `foto2` (mesa com a xícara Moraes Luz e a estátua da Justiça): o prompt pedia evitar imagem jurídica genérica, mas, por decisão do Miguel, a foto foi mantida em `/escritorio` por ser foto própria do escritório. `blacklogo` deixou de ser publicado (logo redundante); o original continua em `design/originais/`.
@@ -79,7 +79,7 @@ Ambiente: macOS, Node 20.20.2, Chrome 155, servidor local `npm run preview` (imi
 | Console | Sem erros nem avisos de hidratação em Home, Aviação, Atuação e 404 |
 | Formulário (build de teste com a flag ligada) | Erros por campo; foco no primeiro inválido; servidor sem serviço (405) → estado de erro; servidor de teste (200) → sucesso com foco; 3 tentativas rápidas → **1 POST**; evento sem dados pessoais |
 | Bloco de localização | Mapa carregado com pin na esquina da Av. Sucuri com a R. J-60; embed final (`/maps/embed`) responde 200 sem `X-Frame-Options`; sem overflow em 320/375/768/1440 |
-| Cartão horizontal do hero | 528×272 px no desktop; nome cabe no cartão em 320, 375, 430 e 768 px; sem overflow |
+| Cartão do hero (vertical e largo) | 528×451 px no desktop, emblema de 171 px; nome cabe no cartão em 320, 375, 430, 768, 1024 e 1440 px; sem overflow |
 | Redirecionamento das âncoras antigas | `/#sobre` → `/escritorio`, `/#atuacao` → `/atuacao` |
 | Animação das fotos (`clip-path` medido durante a transição) | Abre 80% → 28% → 5% → 0 em 60/200/450/1200 ms; segunda foto atrasada (100% → 86% → 15% → 0); escala 1,04 → 1; classes removidas no fim |
 | Contraste (WCAG) | Texto 13,5:1; secundário 5,5:1; bronze 5,2:1; botão dourado 6,4:1; rótulo do contato corrigido para 5,6:1 |
