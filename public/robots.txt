@@ -1,5 +1,0 @@
-# TODO: trocar o domínio quando o definitivo entrar no ar
-User-agent: *
-Allow: /
-
-Sitemap: https://moraesluzadvocacia.netlify.app/sitemap.xml

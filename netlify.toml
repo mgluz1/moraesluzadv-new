@@ -4,8 +4,45 @@
 
 [build.environment]
   NODE_VERSION = "20"
+  # Ativar o formulário só depois de habilitar o Netlify Forms e testar a
+  # notificação por e-mail: VITE_FORMULARIO_CONTATO = "netlify"
+
+# Cada rota é um HTML pré-renderizado (direito-aeronautico.html etc.).
+# Não há regra "/* → /index.html": endereços inexistentes recebem
+# dist/404.html com status 404.
+
+# Endereço antigo → domínio principal, preservando o caminho. Um caminho
+# inexistente cai no 404 do domínio novo, não na Home.
+# http → https e www → sem www são feitos pela configuração de domínio do
+# Netlify (domínio principal: moraesluzadv.com) e continuam valendo.
+[[redirects]]
+  from = "https://moraesluzadvocacia.netlify.app/*"
+  to = "https://moraesluzadv.com/:splat"
+  status = 301
+  force = true
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  from = "http://moraesluzadvocacia.netlify.app/*"
+  to = "https://moraesluzadv.com/:splat"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "DENY"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Arquivos com hash no nome podem ficar em cache por um ano.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Imagens de public/ não têm hash no nome: cache de uma semana.
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

@@ -21,11 +21,18 @@ const PUBLIC = path.join(raiz, 'public');
 const PETROLEUM = {r: 0x1a, g: 0x4a, b: 0x45, alpha: 1};
 
 const ALVOS = [
-  {origem: 'logoTransparente.png', saida: 'logoTransparente.webp', largura: 512, metaKB: 40},
-  {origem: 'blacklogo.png', saida: 'blacklogo.webp', largura: 600, metaKB: 40},
   {origem: 'adv.jpg', saida: 'adv.webp', largura: 800, metaKB: 80},
   {origem: 'foto1.jpg', saida: 'foto1.webp', largura: 800, metaKB: 80},
+  // Variantes menores: logo do cabeçalho (até 56 px em tela 2x) e srcset das fotos.
+  {origem: 'logoTransparente.png', saida: 'logo-marca.webp', largura: 112, metaKB: 8},
+  // Emblema do hero, recortado no limite do anel (trim) para centralizar.
+  {origem: 'logoTransparente.png', saida: 'logo-emblema-320.webp', largura: 320, metaKB: 30, recortar: true},
+  {origem: 'logoTransparente.png', saida: 'logo-emblema-480.webp', largura: 480, metaKB: 58, recortar: true},
+  {origem: 'logoTransparente.png', saida: 'logo-emblema-640.webp', largura: 640, metaKB: 70, recortar: true},
+  {origem: 'adv.jpg', saida: 'adv-480.webp', largura: 480, metaKB: 36},
+  {origem: 'foto1.jpg', saida: 'foto1-480.webp', largura: 480, metaKB: 36},
   {origem: 'foto2.jpg', saida: 'foto2.webp', largura: 800, metaKB: 80},
+  {origem: 'foto2.jpg', saida: 'foto2-480.webp', largura: 480, metaKB: 36},
 ];
 
 const kb = (bytes) => (bytes / 1024).toFixed(1).padStart(6) + ' KB';
@@ -54,8 +61,9 @@ function pngParaIco(png, tamanho) {
 }
 
 /** Maior qualidade WebP que ainda cabe na meta; devolve o menor se nenhuma couber. */
-async function melhorWebp(entrada, largura, metaBytes) {
-  const base = sharp(entrada).resize({width: largura, withoutEnlargement: true});
+async function melhorWebp(entrada, largura, metaBytes, recortar = false) {
+  const origem = recortar ? await sharp(entrada).trim({threshold: 10}).toBuffer() : entrada;
+  const base = sharp(origem).resize({width: largura, withoutEnlargement: true});
   let ultima = null;
 
   for (const quality of [88, 82, 76, 70, 64, 58, 50]) {
@@ -82,7 +90,7 @@ async function main() {
     const metaBytes = alvo.metaKB * 1024;
 
     const original = await tamanho(entrada);
-    const {buf, quality} = await melhorWebp(entrada, alvo.largura, metaBytes);
+    const {buf, quality} = await melhorWebp(entrada, alvo.largura, metaBytes, alvo.recortar);
     await writeFile(saida, buf);
 
     const {width, height} = await sharp(buf).metadata();

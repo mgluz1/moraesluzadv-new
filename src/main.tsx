@@ -1,10 +1,16 @@
 import {StrictMode} from 'react';
-import {createRoot} from 'react-dom/client';
-import App from './App.tsx';
+import {createRoot, hydrateRoot} from 'react-dom/client';
+import App from './App';
+import {encontrarRota} from './rotas';
 import './index.css';
 
-createRoot(document.getElementById('root')!).render(
+const raiz = document.getElementById('root')!;
+const app = (
   <StrictMode>
-    <App />
-  </StrictMode>,
+    <App rota={encontrarRota(window.location.pathname)} />
+  </StrictMode>
 );
+
+// Em produção o HTML já vem pré-renderizado e só é hidratado.
+if (raiz.firstElementChild) hydrateRoot(raiz, app);
+else createRoot(raiz).render(app);
