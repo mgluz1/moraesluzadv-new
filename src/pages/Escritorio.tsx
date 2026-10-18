@@ -84,6 +84,17 @@ export const Escritorio = () => {
             />
           </div>
           <div>
+            {/* Emblema da marca (decorativo: o texto ao lado já identifica a sede). */}
+            <img
+              src="/logo-emblema-320.webp"
+              alt=""
+              width={320}
+              height={313}
+              loading="lazy"
+              decoding="async"
+              data-revelar
+              className="mb-7 h-auto w-24 drop-shadow-[0_2px_10px_rgb(128_97_46/0.18)] sm:w-28"
+            />
             <Rotulo>Sede</Rotulo>
             <h2 id="sede-titulo" className="titulo-secao mt-3 text-verde-profundo">
               Goiânia, Goiás
