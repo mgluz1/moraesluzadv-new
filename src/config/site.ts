@@ -36,9 +36,9 @@ const TELEFONE_E164 = '5562981559648';
 export const CONTATO = {
   telefoneExibicao: '(62) 98155-9648',
   telefoneSchema: '+55-62-98155-9648',
-  // Caixa existente em uso. Trocar por um endereço @moraesluzadv.com só
-  // depois que a caixa estiver criada e testada.
-  email: 'moraesluzadvocacia@gmail.com',
+  // Endereço profissional definido pelo Miguel em 18/10/2026 (antes:
+  // moraesluzadvocacia@gmail.com). Testar envio e recebimento antes de publicar.
+  email: 'escritorio@moraesluzadv.com',
   endereco: {
     logradouro: 'Av. Sucuri, esquina com Rua J60',
     bairro: 'Setor Jaó',

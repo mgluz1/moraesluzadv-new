@@ -28,6 +28,7 @@ Menu: Aviação · Atuação · Escritório · Contato (`/#contato`).
 - `foto2` (mesa com a xícara Moraes Luz e a estátua da Justiça): o prompt pedia evitar imagem jurídica genérica, mas, por decisão do Miguel, a foto foi mantida em `/escritorio` por ser foto própria do escritório. `blacklogo` deixou de ser publicado (logo redundante); o original continua em `design/originais/`.
 - **Presidência da Comissão Especial de Direito Aeronáutico da OAB-GO** (confirmada pelo Miguel em 18/10/2026): aparece como linha discreta no hero, no bloco de liderança da Home, no perfil em `/escritorio`, no bloco "Profissional responsável" em `/direito-aeronautico`, na description de `/escritorio` e no JSON-LD (`Person.memberOf`). Texto central em `RESPONSAVEL.credencial` (`src/config/site.ts`), componente `src/components/ui/Credencial.tsx`.
 - **Localização** (`src/components/ui/Localizacao.tsx`, dados em `LOCALIZACAO` em `src/config/site.ts`): bloco na seção Sede de `/escritorio`, com endereço exatamente como no Google Maps ("Esquina com Rua J60, Av. Sucuri – St. Jao, Goiânia – GO, 74674-260") e pin nas coordenadas do link (-16.6394493, -49.2313609; o `@…,-49.2325518` do link é só o centro da vista). O mapa usa embed sem chave de API, com `loading="lazy"` e `title` acessível. "Como chegar" abre a rota do Google Maps em nova aba e fica fora do iframe, então funciona mesmo sem o mapa. Entrada pelo reveal existente (respeita movimento reduzido). O endereço e o link "Ver no mapa" que estavam no texto da Sede foram substituídos pelo bloco. A política de privacidade passou a citar o mapa do Google.
+- **Favicon** (pedido do Miguel): só o emblema dourado, fundo transparente, recortado no anel. `favicon.ico` com 16/32/48 px, mais `favicon-32.png` e `favicon-192.png`. Em 16 e 32 px usa dourado sólido `#B08F55` e alfa reforçado para manter nitidez; a partir de 48 px, o degradê original. O `apple-touch-icon` continua com fundo verde, porque o iOS preenche transparência de preto. Gerados por `npm run imagens`.
 - **Animação das fotos** (pedido do Miguel): ao entrar na tela pela primeira vez, a moldura se abre de baixo para cima (`clip-path`) e a imagem assenta de 1,08 para 1, com a segunda foto da sede 160 ms depois. No hover há zoom lento de 1,03 dentro da moldura. Componente `src/components/ui/FotoRevelada.tsx`; desligado com movimento reduzido e para fotos já visíveis no carregamento.
 
 ## 2. Decisões técnicas
@@ -56,7 +57,7 @@ Menu: Aviação · Atuação · Escritório · Contato (`/#contato`).
 
 ## 4. Contato e mensuração
 
-- Canais preservados: WhatsApp (62) 98155-9648, `moraesluzadvocacia@gmail.com`, endereço/mapa, Instagram @isabelamoraesluz (rodapé).
+- Canais preservados: WhatsApp (62) 98155-9648, e-mail `escritorio@moraesluzadv.com` (trocado do Gmail a pedido do Miguel em 18/10/2026), endereço/mapa, Instagram @isabelamoraesluz (rodapé).
 - Uma única seção de contato por página; mensagem do WhatsApp e assunto do e-mail identificam a página de origem.
 - **Formulário** (`src/components/contato/FormularioContato.tsx`): nome, e-mail **ou** telefone, empresa opcional, assunto (lista), mensagem com até 800 caracteres e aviso para não enviar documentos sigilosos. Tem validação com foco no primeiro erro, campo-isca, bloqueio de envio duplicado, estados reais de envio, sucesso e erro, e alternativa por WhatsApp/e-mail quando falha.
   - Ativação: definir `VITE_FORMULARIO_CONTATO=netlify` no ambiente de build do Netlify, habilitar *Forms* no painel, configurar a notificação por e-mail e testar um envio real. Ao ativar, a política de privacidade passa a exibir automaticamente a seção do formulário.
@@ -116,7 +117,7 @@ Os números do Lighthouse são **de laboratório, em servidor local**, não dado
 - [ ] Formulário: habilitar Netlify Forms, notificação por e-mail e, se o briefing exigir envio "por mecanismo autenticado", trocar por função própria + serviço transacional autenticado no domínio (SPF/DKIM).
 - [ ] GA4/GTM: criar contas em nome do escritório; instalar o GTM com banner de consentimento (Consent Mode). Atualizar a política antes.
 - [ ] Search Console: verificar o domínio e enviar o sitemap após a publicação.
-- [ ] E-mail: MX e SPF da Hostinger e DMARC `p=none` **existem** (conferidos via DNS em 18/10/2026). Falta validar DKIM, alinhamento e entregabilidade. **Nenhum registro DNS foi alterado.** Só trocar o e-mail publicado por um `@moraesluzadv.com` depois que a caixa existir e for testada.
+- [ ] E-mail: MX e SPF da Hostinger e DMARC `p=none` **existem** (conferidos via DNS em 18/10/2026). Falta validar DKIM, alinhamento e entregabilidade. **Nenhum registro DNS foi alterado.** O site já publica `escritorio@moraesluzadv.com`: antes de ir ao ar, confirmar que a caixa existe na Hostinger e testar envio e recebimento (Gmail e Outlook).
 
 ## 7. Como executar e conferir
 
