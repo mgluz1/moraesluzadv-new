@@ -1,6 +1,7 @@
 import type {ReactNode} from 'react';
 import {Container, Rotulo} from './base';
 import {LinhaRota} from './LinhaRota';
+import {FotoRevelada} from './FotoRevelada';
 
 interface AberturaPaginaProps {
   rotulo: string;
@@ -11,10 +12,12 @@ interface AberturaPaginaProps {
   comRota?: boolean;
   /** Emblema dourado ao lado do título (desktop) e acima dele (celular). */
   logo?: boolean;
+  /** Foto ao lado do título (desktop) e abaixo dele (celular). Substitui o emblema. */
+  foto?: {src: string; srcSet: string; alt: string; width: number; height: number; posicao?: string};
 }
 
 /** Abertura das páginas internas: trilha, rótulo, H1 e texto de apoio. */
-export const AberturaPagina = ({rotulo, titulo, trilha, children, comRota = false, logo = false}: AberturaPaginaProps) => (
+export const AberturaPagina = ({rotulo, titulo, trilha, children, comRota = false, logo = false, foto}: AberturaPaginaProps) => (
   <div className="superficie-escura relative overflow-hidden bg-verde-profundo text-white">
     {comRota && (
       <LinhaRota className="absolute -right-24 bottom-0 hidden w-[620px] text-dourado/45 lg:block" />
@@ -36,12 +39,27 @@ export const AberturaPagina = ({rotulo, titulo, trilha, children, comRota = fals
       <Rotulo escuro className="mt-10">
         {rotulo}
       </Rotulo>
-      <div className={`mt-4 ${logo ? 'grid items-center gap-10 md:grid-cols-[minmax(0,1fr)_auto] lg:gap-16' : ''}`}>
+      <div className={`mt-4 ${logo || foto ? 'grid items-center gap-10 md:grid-cols-[minmax(0,1fr)_auto] lg:gap-16' : ''}`}>
         <div>
           <h1 className="titulo-pagina max-w-3xl">{titulo}</h1>
           {children && <div className="texto-apoio mt-6 max-w-2xl text-white/80">{children}</div>}
         </div>
-        {logo && (
+        {foto && (
+          <FotoRevelada
+            src={foto.src}
+            srcSet={foto.srcSet}
+            sizes="(min-width: 1024px) 336px, (min-width: 768px) 288px, 320px"
+            alt={foto.alt}
+            width={foto.width}
+            height={foto.height}
+            loading="eager"
+            fetchPriority="high"
+            proporcao="aspect-[4/5]"
+            className="mx-auto w-full max-w-xs md:mx-0 md:w-72 lg:w-84"
+            imgClassName={foto.posicao ?? 'object-[50%_30%]'}
+          />
+        )}
+        {logo && !foto && (
           <img
             src="/logo-emblema-320.webp"
             srcSet="/logo-emblema-320.webp 320w, /logo-emblema-480.webp 480w"

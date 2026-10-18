@@ -35,6 +35,9 @@ const ALVOS = [
   {origem: 'foto1.jpg', saida: 'foto1-480.webp', largura: 480, metaKB: 36},
   {origem: 'foto2.jpg', saida: 'foto2.webp', largura: 800, metaKB: 80},
   {origem: 'foto2.jpg', saida: 'foto2-480.webp', largura: 480, metaKB: 36},
+  // Retrato usado no cabeçalho de Atuação.
+  {origem: 'adv2.png', saida: 'adv2.webp', largura: 800, metaKB: 90},
+  {origem: 'adv2.png', saida: 'adv2-480.webp', largura: 480, metaKB: 40},
   // Avião dourado decorativo da seção de aviação (recortado no contorno).
   {origem: 'aviao.png', saida: 'aviao-160.webp', largura: 160, metaKB: 8, recortar: true},
   {origem: 'aviao.png', saida: 'aviao-320.webp', largura: 320, metaKB: 18, recortar: true},

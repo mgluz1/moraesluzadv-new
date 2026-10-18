@@ -18,7 +18,15 @@ const ListaAtuacao = ({itens}: {itens: readonly {titulo: string; texto: string}[
 
 export const Atuacao = () => (
   <>
-    <AberturaPagina rotulo="Atuação" titulo="Empresarial e Trabalhista Empresarial" trilha="Atuação">
+    <AberturaPagina rotulo="Atuação" titulo="Empresarial e Trabalhista Empresarial" trilha="Atuação"
+      foto={{
+        src: '/adv2.webp',
+        srcSet: '/adv2-480.webp 480w, /adv2.webp 800w',
+        alt: 'Retrato de advogada do escritório Moraes Luz em seu gabinete',
+        width: 800,
+        height: 1067,
+      }}
+    >
       <p>
         Suporte jurídico às empresas da aviação e de outros setores, nos contratos, na estrutura do negócio e nas relações de
         trabalho.
