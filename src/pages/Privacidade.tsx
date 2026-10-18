@@ -40,8 +40,12 @@ export const Privacidade = () => (
 
           <Bloco titulo="Navegação no site">
             <p>
-              O site não usa cookies, ferramentas de análise de audiência, publicidade ou rastreamento de terceiros. As fontes e as
-              imagens são servidas pelo próprio site.
+              O site não usa cookies próprios, ferramentas de análise de audiência ou publicidade. As fontes e as imagens são
+              servidas pelo próprio site.
+            </p>
+            <p>
+              A página Escritório exibe um mapa do Google Maps, carregado quando você chega a essa parte da página. Ao carregar, o
+              Google pode receber dados técnicos de acesso e usar cookies, conforme a política de privacidade do Google.
             </p>
             <p>
               Como em qualquer site, o provedor de hospedagem registra dados técnicos de acesso, como endereço IP, data, horário e

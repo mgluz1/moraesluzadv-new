@@ -3,6 +3,7 @@ import {ArrowUpRight} from 'lucide-react';
 import {Botao, CabecalhoSecao, Container, LinkSeta, Rotulo, Secao} from '../components/ui/base';
 import {LogoHero} from '../components/ui/LogoHero';
 import {FotoRevelada} from '../components/ui/FotoRevelada';
+import {Credencial} from '../components/ui/Credencial';
 import {SecaoContato} from '../components/contato/SecaoContato';
 import {FRENTES_AVIACAO, PUBLICOS} from '../content/atuacao';
 import {destaquesConhecimento} from '../content/conhecimento';
@@ -35,9 +36,9 @@ export const Home = () => {
       {/* 1. Hero */}
       <section aria-labelledby="hero-titulo" className="superficie-escura relative overflow-hidden bg-verde-profundo text-white">
         <Container className="relative grid items-center gap-12 pt-12 pb-14 sm:pt-16 sm:pb-16 lg:grid-cols-12 lg:gap-10 lg:pt-20 lg:pb-20">
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-6">
             <Rotulo escuro>Direito Aeronáutico e Empresarial</Rotulo>
-            <h1 id="hero-titulo" className="titulo-pagina mt-5">
+            <h1 id="hero-titulo" className="titulo-pagina mt-5 lg:text-[3.25rem]">
               Direito empresarial para quem faz a aviação acontecer.
             </h1>
             <p className="texto-apoio mt-6 max-w-[38rem] text-white/80">
@@ -50,8 +51,9 @@ export const Home = () => {
                 Conheça nossa atuação
               </Botao>
             </div>
+            <Credencial escuro comNome className="mt-9 max-w-[34rem] border-t border-white/10 pt-6" />
           </div>
-          <LogoHero className="mx-auto w-full max-w-md lg:col-span-5 lg:max-w-none" />
+          <LogoHero className="w-full lg:col-span-6" />
         </Container>
 
         <div className="border-t border-white/10">
@@ -118,7 +120,8 @@ export const Home = () => {
             <p className="mt-2 text-sm font-medium text-texto-2">
               {RESPONSAVEL.cargo} · {RESPONSAVEL.oab}
             </p>
-            <p className="mt-6 max-w-xl text-texto-2">
+            <Credencial className="mt-5" />
+            <p className="mt-5 max-w-xl text-texto-2">
               Conduz a atuação do Moraes Luz Advocacia em Direito Aeronáutico, Empresarial e Trabalhista Empresarial, acompanhando
               transações com aeronaves, contratos do setor, questões regulatórias e relações de trabalho de empresas ligadas à
               aviação.

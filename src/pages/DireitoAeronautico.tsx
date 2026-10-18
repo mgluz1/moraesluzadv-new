@@ -2,6 +2,7 @@ import {Check} from 'lucide-react';
 import {AberturaPagina} from '../components/ui/AberturaPagina';
 import {CabecalhoSecao, LinkSeta, Rotulo, Secao} from '../components/ui/base';
 import {SecaoContato} from '../components/contato/SecaoContato';
+import {Credencial} from '../components/ui/Credencial';
 import {ETAPAS_ATENDIMENTO, GRUPOS_AVIACAO, PUBLICOS} from '../content/atuacao';
 import {RESPONSAVEL} from '../config/site';
 
@@ -102,7 +103,8 @@ export const DireitoAeronautico = () => (
           <p className="mt-1 text-sm font-medium text-texto-2">
             {RESPONSAVEL.cargo} · {RESPONSAVEL.oab}
           </p>
-          <p className="mt-4 max-w-xl text-texto-2">
+          <Credencial className="mt-4" />
+          <p className="mt-3 max-w-xl text-texto-2">
             Responsável pela atuação do escritório em Direito Aeronáutico, nas frentes contratual, regulatória e trabalhista.
           </p>
         </div>

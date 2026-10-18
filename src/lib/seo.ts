@@ -44,6 +44,13 @@ function dadosEstruturados(rota: Rota): object[] {
     jobTitle: RESPONSAVEL.cargo,
     image: `${SITE.url}/adv.webp`,
     worksFor: {'@id': ID_ESCRITORIO},
+    // Coerente com a credencial exibida nas páginas.
+    memberOf: {
+      '@type': 'Organization',
+      name: `${RESPONSAVEL.credencial.comissao} da OAB-GO`,
+      parentOrganization: {'@type': 'Organization', name: RESPONSAVEL.credencial.entidade},
+    },
+    description: RESPONSAVEL.credencial.cargo,
     sameAs: [RESPONSAVEL.instagram],
   };
 

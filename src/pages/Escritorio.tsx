@@ -1,14 +1,14 @@
 import {AberturaPagina} from '../components/ui/AberturaPagina';
 import {LinkSeta, Rotulo, Secao} from '../components/ui/base';
 import {FotoRevelada} from '../components/ui/FotoRevelada';
+import {Localizacao} from '../components/ui/Localizacao';
+import {Credencial} from '../components/ui/Credencial';
 import {SecaoContato} from '../components/contato/SecaoContato';
-import {CONTATO, RESPONSAVEL} from '../config/site';
+import {RESPONSAVEL} from '../config/site';
 
 const AREAS = ['Direito Aeronáutico', 'Direito Empresarial', 'Trabalhista Empresarial'];
 
 export const Escritorio = () => {
-  const {endereco} = CONTATO;
-
   return (
     <>
       <AberturaPagina rotulo="Escritório" titulo="Moraes Luz Advocacia & Assessoria Jurídica" trilha="Escritório">
@@ -35,7 +35,8 @@ export const Escritorio = () => {
               {RESPONSAVEL.tratamento}
             </h2>
             <p className="mt-2 text-sm font-medium text-texto-2">{RESPONSAVEL.oab}</p>
-            <div className="mt-6 max-w-xl space-y-4 text-texto-2">
+            <Credencial className="mt-5" />
+            <div className="mt-5 max-w-xl space-y-4 text-texto-2">
               <p>
                 Fundou o Moraes Luz Advocacia e conduz a atuação do escritório. Acompanha transações com aeronaves, contratos
                 aeronáuticos, questões regulatórias e relações de trabalho de empresas ligadas à aviação, além da assessoria
@@ -90,18 +91,9 @@ export const Escritorio = () => {
             <p className="mt-5 max-w-lg text-texto-2">
               As reuniões no escritório são agendadas previamente pelo WhatsApp ou por e-mail.
             </p>
-            <address className="mt-6 not-italic text-texto">
-              {endereco.logradouro}
-              <br />
-              {endereco.bairro}, {endereco.cidade} – {endereco.uf}
-              <br />
-              CEP {endereco.cep}
-            </address>
-            <LinkSeta href={CONTATO.mapa} externo className="mt-6">
-              Ver no mapa
-            </LinkSeta>
           </div>
         </div>
+        <Localizacao />
       </Secao>
 
       <SecaoContato origem="escritorio" />

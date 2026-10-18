@@ -12,7 +12,7 @@
 | `/` | Hero com logo animado e "Quem atendemos" · Operações aeronáuticas (4 frentes) · Escritório e liderança · Suporte empresarial (Empresarial e Trabalhista) · Conhecimento do setor (oculto enquanto não houver material) · Contato |
 | `/direito-aeronautico` | Posicionamento e públicos · Operações e demandas (3 grupos, 6 frentes do briefing) · Forma de atendimento · Profissional responsável · Contato |
 | `/atuacao` | `#empresarial` e `#trabalhista`, com bloco de relações de trabalho na aviação |
-| `/escritorio` | Perfil da Dra. Isabela Santos Moraes Luz e sede em Goiânia, com duas fotos do escritório (sala de reuniões e mesa com a xícara da marca) |
+| `/escritorio` | Perfil da Dra. Isabela Santos Moraes Luz e sede em Goiânia, com duas fotos do escritório e bloco de localização (mapa do Google Maps + "Como chegar") |
 | `/privacidade` | Política coerente com os recursos efetivamente usados (sem cookies nem Analytics nesta versão) |
 | qualquer outra | `404.html` com status 404 e `noindex` |
 
@@ -22,10 +22,12 @@ Menu: Aviação · Atuação · Escritório · Contato (`/#contato`).
 
 - Empresarial e Trabalhista consolidados em `/atuacao`, com âncoras próprias, em vez de duas páginas, para não criar páginas rasas na primeira versão.
 - Sem subpáginas por tema de aviação (compra e venda, importação etc.): os temas estão agrupados em `/direito-aeronautico` com âncoras (`#transacoes`, `#operacao`, `#empresas`). Criar subpáginas quando houver texto próprio suficiente.
-- **Logo grande no hero:** o prompt de reestruturação pedia para não repetir o logo grande do cabeçalho. Por decisão do Miguel durante a execução, o hero da Home tem um cartão com o emblema, o nome e "Advocacia & Assessoria Jurídica", com animação de entrada. "Quem atendemos" virou uma faixa na base do hero para continuar visível de imediato.
+- **Logo no hero (cartão horizontal):** o prompt de reestruturação pedia para não repetir o logo grande do cabeçalho. Por decisão do Miguel durante a execução, o hero da Home tem um cartão horizontal (emblema à esquerda; nome e "Advocacia & Assessoria Jurídica" à direita; empilhado abaixo de 360 px) com animação de entrada. No desktop, o hero é dividido 6/6 entre texto e cartão. "Quem atendemos" virou uma faixa na base do hero para continuar visível de imediato.
 - Insights: estrutura em `src/content/conhecimento.ts` (lista vazia). O bloco da Home só aparece com material real e só mostra até dois itens. Não há rota `/insights` nem artigos fictícios.
 - Atendimento a passageiros: não criado (sem confirmação de que existe). Se existir, fazer um fluxo separado, fora do menu principal.
 - `foto2` (mesa com a xícara Moraes Luz e a estátua da Justiça): o prompt pedia evitar imagem jurídica genérica, mas, por decisão do Miguel, a foto foi mantida em `/escritorio` por ser foto própria do escritório. `blacklogo` deixou de ser publicado (logo redundante); o original continua em `design/originais/`.
+- **Presidência da Comissão Especial de Direito Aeronáutico da OAB-GO** (confirmada pelo Miguel em 18/10/2026): aparece como linha discreta no hero, no bloco de liderança da Home, no perfil em `/escritorio`, no bloco "Profissional responsável" em `/direito-aeronautico`, na description de `/escritorio` e no JSON-LD (`Person.memberOf`). Texto central em `RESPONSAVEL.credencial` (`src/config/site.ts`), componente `src/components/ui/Credencial.tsx`.
+- **Localização** (`src/components/ui/Localizacao.tsx`, dados em `LOCALIZACAO` em `src/config/site.ts`): bloco na seção Sede de `/escritorio`, com endereço exatamente como no Google Maps ("Esquina com Rua J60, Av. Sucuri – St. Jao, Goiânia – GO, 74674-260") e pin nas coordenadas do link (-16.6394493, -49.2313609; o `@…,-49.2325518` do link é só o centro da vista). O mapa usa embed sem chave de API, com `loading="lazy"` e `title` acessível. "Como chegar" abre a rota do Google Maps em nova aba e fica fora do iframe, então funciona mesmo sem o mapa. Entrada pelo reveal existente (respeita movimento reduzido). O endereço e o link "Ver no mapa" que estavam no texto da Sede foram substituídos pelo bloco. A política de privacidade passou a citar o mapa do Google.
 - **Animação das fotos** (pedido do Miguel): ao entrar na tela pela primeira vez, a moldura se abre de baixo para cima (`clip-path`) e a imagem assenta de 1,08 para 1, com a segunda foto da sede 160 ms depois. No hover há zoom lento de 1,03 dentro da moldura. Componente `src/components/ui/FotoRevelada.tsx`; desligado com movimento reduzido e para fotos já visíveis no carregamento.
 
 ## 2. Decisões técnicas
@@ -75,6 +77,8 @@ Ambiente: macOS, Node 20.20.2, Chrome 155, servidor local `npm run preview` (imi
 | Teclado | "Pular para o conteúdo" no primeiro Tab; foco visível independente do hover |
 | Console | Sem erros nem avisos de hidratação em Home, Aviação, Atuação e 404 |
 | Formulário (build de teste com a flag ligada) | Erros por campo; foco no primeiro inválido; servidor sem serviço (405) → estado de erro; servidor de teste (200) → sucesso com foco; 3 tentativas rápidas → **1 POST**; evento sem dados pessoais |
+| Bloco de localização | Mapa carregado com pin na esquina da Av. Sucuri com a R. J-60; embed final (`/maps/embed`) responde 200 sem `X-Frame-Options`; sem overflow em 320/375/768/1440 |
+| Cartão horizontal do hero | 528×272 px no desktop; nome cabe no cartão em 320, 375, 430 e 768 px; sem overflow |
 | Redirecionamento das âncoras antigas | `/#sobre` → `/escritorio`, `/#atuacao` → `/atuacao` |
 | Animação das fotos (`clip-path` medido durante a transição) | Abre 80% → 28% → 5% → 0 em 60/200/450/1200 ms; segunda foto atrasada (100% → 86% → 15% → 0); escala 1,04 → 1; classes removidas no fim |
 | Contraste (WCAG) | Texto 13,5:1; secundário 5,5:1; bronze 5,2:1; botão dourado 6,4:1; rótulo do contato corrigido para 5,6:1 |
@@ -89,12 +93,12 @@ Os números do Lighthouse são **de laboratório, em servidor local**, não dado
 **Conteúdo e confirmação (antes de publicar)**
 
 - [ ] **Inscrição OAB/GO 54.986**: tirada da documentação do projeto. Confirmar no Cadastro Nacional dos Advogados antes da publicação.
-- [ ] **Presidência da Comissão Especial de Direito Aeronáutico da OAB-GO**: **não publicada**. Não foi encontrada fonte pública que a confirme. Para incluir: denominação exata, ato de nomeação e mandato. Entra no perfil (`/escritorio`) e no bloco de liderança.
+- [ ] **Presidência da Comissão Especial de Direito Aeronáutico da OAB-GO**: publicada após confirmação do Miguel. Faltam ato de nomeação e mandato, para revisar o texto ao fim do mandato (`RESPONSAVEL.credencial`).
 - [ ] Formação, pós-graduações e experiência da Dra. Isabela (o perfil hoje descreve só a atuação).
 - [ ] Outros advogados ou integrantes da equipe que devam aparecer.
 - [ ] **Forma de atendimento** (`ETAPAS_ATENDIMENTO` em `src/content/atuacao.ts`): texto conservador, a confirmar com o escritório.
 - [ ] "Reuniões agendadas previamente": confirmar.
-- [ ] Endereço: o original era "Esquina com Rua J60, Av. Sucuri – St. Jao". Foi exibido como "Av. Sucuri, esquina com Rua J60, Setor Jaó". Confirmar a grafia.
+- [ ] Endereço: o bloco de localização usa o texto literal do Google Maps ("St. Jao"). Rodapé, contato e JSON-LD ainda usam "Setor Jaó", uma expansão não confirmada (`CONTATO.endereco`). Confirmar o nome do bairro e unificar.
 - [ ] Escopo de Administrativo e Tributário (o site antigo listava Tributário; não foi incluído).
 - [ ] Artigos, publicações ou participações verificáveis para o bloco "Conhecimento do setor".
 - [ ] Fotografia própria em contexto de aviação (hangar ou aeronave, com autorização). Hoje há a sala de reuniões (`foto1`) e a mesa (`foto2`).

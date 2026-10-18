@@ -53,7 +53,7 @@ export const ROTAS: Rota[] = [
     arquivo: 'escritorio.html',
     titulo: 'Escritório e equipe | Moraes Luz Advocacia',
     descricao:
-      'Moraes Luz Advocacia & Assessoria Jurídica, em Goiânia (GO). Conheça a sócia-fundadora, Dra. Isabela Santos Moraes Luz, e a atuação do escritório.',
+      'Moraes Luz Advocacia & Assessoria Jurídica, em Goiânia (GO). Conheça a sócia-fundadora, Dra. Isabela Santos Moraes Luz, presidente da Comissão Especial de Direito Aeronáutico da OAB-GO.',
     trilha: 'Escritório',
     indexavel: true,
     Pagina: Escritorio,
