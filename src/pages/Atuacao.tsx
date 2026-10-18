@@ -2,6 +2,7 @@ import {Plane} from 'lucide-react';
 import {AberturaPagina} from '../components/ui/AberturaPagina';
 import {CabecalhoSecao, LinkSeta, Secao} from '../components/ui/base';
 import {SecaoContato} from '../components/contato/SecaoContato';
+import {DecorAviacao} from '../components/ui/DecorAviacao';
 import {EMPRESARIAL, TRABALHISTA} from '../content/atuacao';
 
 const ListaAtuacao = ({itens}: {itens: readonly {titulo: string; texto: string}[]}) => (
@@ -36,7 +37,8 @@ export const Atuacao = () => (
       </ul>
     </AberturaPagina>
 
-    <Secao id="empresarial" rotuloId="empresarial-titulo">
+    <Secao id="empresarial" rotuloId="empresarial-titulo" className="relative overflow-hidden">
+      <DecorAviacao canto="topo-direita" tamanho="sm" rota inclinacao={-8} />
       <CabecalhoSecao rotulo="Empresarial" titulo="Contratos, estrutura e disputas" id="empresarial-titulo">
         <p>
           Assessoria a empresas nas decisões que envolvem contratos, sócios e litígios, com conhecimento das relações comerciais
@@ -46,7 +48,8 @@ export const Atuacao = () => (
       <ListaAtuacao itens={EMPRESARIAL} />
     </Secao>
 
-    <Secao id="trabalhista" tom="branco" rotuloId="trabalhista-titulo">
+    <Secao id="trabalhista" tom="branco" rotuloId="trabalhista-titulo" className="relative overflow-hidden">
+      <DecorAviacao canto="base-direita" tamanho="sm" inclinacao={-12} atraso={250} />
       <CabecalhoSecao rotulo="Trabalhista Empresarial" titulo="Assessoria e defesa de empregadores" id="trabalhista-titulo">
         <p>Atuação preventiva, consultiva e contenciosa ao lado da empresa empregadora.</p>
       </CabecalhoSecao>

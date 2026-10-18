@@ -2,6 +2,7 @@ import {Check} from 'lucide-react';
 import {AberturaPagina} from '../components/ui/AberturaPagina';
 import {CabecalhoSecao, LinkSeta, Rotulo, Secao} from '../components/ui/base';
 import {SecaoContato} from '../components/contato/SecaoContato';
+import {DecorAviacao} from '../components/ui/DecorAviacao';
 import {Credencial} from '../components/ui/Credencial';
 import {ETAPAS_ATENDIMENTO, GRUPOS_AVIACAO, PUBLICOS} from '../content/atuacao';
 import {RESPONSAVEL} from '../config/site';
@@ -30,7 +31,9 @@ export const DireitoAeronautico = () => (
     </div>
 
     {/* 2. Operações e demandas atendidas */}
-    <Secao rotuloId="demandas-titulo">
+    <Secao rotuloId="demandas-titulo" className="relative overflow-hidden">
+      <DecorAviacao canto="topo-direita" rota inclinacao={-10} />
+      <DecorAviacao canto="base-esquerda" tamanho="sm" inclinacao={18} atraso={300} />
       <CabecalhoSecao rotulo="Operações e demandas" titulo="O que acompanhamos" id="demandas-titulo">
         <p>Organizado pelas situações que proprietários, operadores e empresas do setor enfrentam na prática.</p>
       </CabecalhoSecao>
@@ -68,7 +71,8 @@ export const DireitoAeronautico = () => (
     </Secao>
 
     {/* 3. Forma de atendimento */}
-    <Secao tom="branco" rotuloId="atendimento-titulo">
+    <Secao tom="branco" rotuloId="atendimento-titulo" className="relative overflow-hidden">
+      <DecorAviacao canto="base-direita" tamanho="sm" rota inclinacao={-6} atraso={200} />
       <CabecalhoSecao rotulo="Atendimento" titulo="Como conduzimos o trabalho" id="atendimento-titulo" />
       <ol className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
         {ETAPAS_ATENDIMENTO.map((etapa, i) => (

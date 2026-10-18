@@ -3,6 +3,7 @@ import {LinkSeta, Rotulo, Secao} from '../components/ui/base';
 import {FotoRevelada} from '../components/ui/FotoRevelada';
 import {Localizacao} from '../components/ui/Localizacao';
 import {Credencial} from '../components/ui/Credencial';
+import {DecorAviacao} from '../components/ui/DecorAviacao';
 import {SecaoContato} from '../components/contato/SecaoContato';
 import {RESPONSAVEL} from '../config/site';
 
@@ -15,7 +16,8 @@ export const Escritorio = () => {
         <p>Escritório sediado em Goiânia (GO), com atuação empresarial e foco no Direito Aeronáutico.</p>
       </AberturaPagina>
 
-      <Secao tom="branco" rotuloId="perfil-titulo">
+      <Secao tom="branco" rotuloId="perfil-titulo" className="relative overflow-hidden">
+        <DecorAviacao canto="topo-direita" rota inclinacao={-10} />
         <article id="isabela-santos-moraes-luz" className="grid gap-10 md:grid-cols-[0.85fr_1fr] lg:gap-20">
           <FotoRevelada
             src="/adv.webp"
@@ -59,7 +61,8 @@ export const Escritorio = () => {
         </article>
       </Secao>
 
-      <Secao rotuloId="sede-titulo">
+      <Secao rotuloId="sede-titulo" className="relative overflow-hidden">
+        <DecorAviacao canto="base-esquerda" tamanho="sm" inclinacao={14} atraso={200} />
         <div className="grid items-center gap-10 md:grid-cols-[1fr_1.1fr] lg:gap-20">
           <div className="grid grid-cols-2 items-start gap-3 sm:gap-5 md:order-2">
             <FotoRevelada
