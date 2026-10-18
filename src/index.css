@@ -137,6 +137,32 @@
     }
   }
 
+  /*
+   * Aviões decorativos: a rota tracejada se desenha (máscara) e o avião
+   * chega deslizando na direção do voo. Usa a propriedade `translate`, que
+   * não conflita com o `rotate` dos utilitários do Tailwind.
+   */
+  .aviao-pendente .rota-voo {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+  .aviao-visivel .rota-voo {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1300ms var(--ease-saida);
+  }
+  .aviao-pendente .aviao-voo {
+    opacity: 0;
+    translate: -44px 18px;
+  }
+  .aviao-visivel .aviao-voo {
+    opacity: 1;
+    translate: 0 0;
+    transition:
+      opacity 700ms var(--ease-saida) var(--atraso-aviao, 0ms),
+      translate 1200ms var(--ease-saida) var(--atraso-aviao, 0ms);
+  }
+
   /* Linha de rota decorativa: desenhada uma única vez. */
   .rota-traco {
     stroke-dasharray: 1;

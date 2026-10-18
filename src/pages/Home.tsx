@@ -3,6 +3,7 @@ import {ArrowUpRight} from 'lucide-react';
 import {Botao, CabecalhoSecao, Container, LinkSeta, Rotulo, Secao} from '../components/ui/base';
 import {LogoHero} from '../components/ui/LogoHero';
 import {FotoRevelada} from '../components/ui/FotoRevelada';
+import {AvioesDecorativos} from '../components/ui/AvioesDecorativos';
 import {Credencial} from '../components/ui/Credencial';
 import {SecaoContato} from '../components/contato/SecaoContato';
 import {FRENTES_AVIACAO, PUBLICOS} from '../content/atuacao';
@@ -72,8 +73,9 @@ export const Home = () => {
       </section>
 
       {/* 2. Operações aeronáuticas */}
-      <Secao rotuloId="operacoes-titulo">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+      <Secao rotuloId="operacoes-titulo" className="relative overflow-hidden">
+        <AvioesDecorativos />
+        <div className="relative flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <CabecalhoSecao rotulo="Aviação" titulo="Operações que acompanhamos" id="operacoes-titulo">
             <p>Da aquisição da aeronave às relações de trabalho de quem opera, com atenção aos contratos e às exigências do setor.</p>
           </CabecalhoSecao>
@@ -81,7 +83,7 @@ export const Home = () => {
             Direito Aeronáutico
           </LinkSeta>
         </div>
-        <ol data-revelar className="mt-12 grid gap-px overflow-hidden rounded-cartao border border-divisoria bg-divisoria sm:grid-cols-2">
+        <ol data-revelar className="relative mt-12 grid gap-px overflow-hidden rounded-cartao border border-divisoria bg-divisoria sm:grid-cols-2">
           {FRENTES_AVIACAO.map((frente, i) => (
             <li key={frente.titulo} className="bg-superficie">
               <a

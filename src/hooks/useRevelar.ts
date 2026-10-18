@@ -4,6 +4,7 @@ import {useEffect} from 'react';
 const TIPOS = [
   {seletor: '[data-revelar]', pendente: 'revelar-pendente', visivel: 'revelar-visivel', duracao: 700},
   {seletor: '[data-revelar-imagem]', pendente: 'foto-pendente', visivel: 'foto-visivel', duracao: 1700},
+  {seletor: '[data-revelar-aviao]', pendente: 'aviao-pendente', visivel: 'aviao-visivel', duracao: 1900},
 ] as const;
 
 /**
